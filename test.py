@@ -1,9 +1,8 @@
+#!/usr/bin/env python3
 import sys
 import difflib
 import os
 from os import path
-
-d = difflib.Differ()
 
 class bcolors:
     HEADER = '\033[95m'
@@ -44,12 +43,11 @@ else:
         result = result_file.read()
         result_file.close()
 
-        print("CASE",i+1,":")
         if result == expected[i]:
-            print(bcolors.OKGREEN+"ACCEPTED"+bcolors.ENDC)
+            print("CASE",i+1,":",bcolors.OKGREEN+"ACCEPTED"+bcolors.ENDC)
             correct_answers += 1
         else:
-            print(bcolors.FAIL+"WRONG ANSWER"+bcolors.ENDC)
+            print("CASE",i+1,":",bcolors.FAIL+"WRONG ANSWER"+bcolors.ENDC)
             print(" expecting:")
             print("  "+bcolors.WARNING+expected[i].replace("\n"," ")+bcolors.ENDC)
             print(" result:")
